@@ -1,5 +1,7 @@
 package com.rama.products.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,10 +19,44 @@ public class ProductsServiceImpl implements ProductsService{
 	public Products saveProducts(Products products) {
 		// TODO Auto-generated method stub
 		return productsRepository.save(products);
+		
+		
 	}
+	
+	 
+	@Override
+	    public List<Products> fetchProductsList() {
+	        return productsRepository.findAll();
+	    }
+
+
+	
+
+
+	@Override
+	public Products fetchProductsById(Long productsId) {
+		// TODO Auto-generated method stub
+		return productsRepository.findById(productsId).get();
+
+	}
+
+
+	//@Override
+	public List<Products> fetchProductstList() {
+		// TODO Auto-generated method stub
+		return null;
+	//}
+
+
+	
+
+
+	
+	}}
+
 
 	
 	
-	}
 
+	
 

@@ -4,8 +4,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "Products")
 public class Products {
 	
 	
@@ -37,7 +39,9 @@ public class Products {
 	public void setBrandid(long brandid) {
 		this.brandid = brandid;
 	}
+	
 	private String productname;
+	
 	private String productdescription;
 	private long brandid;
 	
