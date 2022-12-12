@@ -5,12 +5,27 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "Products")
+@Data
+@AllArgsConstructor(staticName = "build")
+@NoArgsConstructor
+
 public class Products {
 	
 	
+	@Override
+	public String toString() {
+		return "Products [productsid=" + productsid + ", productname=" + productname + ", productdescription="
+				+ productdescription + ", brandid=" + brandid + "]";
+	}
+
 	@Id
 	 @GeneratedValue(strategy = GenerationType.AUTO)
 	
@@ -39,11 +54,14 @@ public class Products {
 	public void setBrandid(long brandid) {
 		this.brandid = brandid;
 	}
-	
+	@NotBlank(message = "Product name cannot be blank")
 	private String productname;
 	
 	private String productdescription;
 	private long brandid;
+	 
+		// TODO Auto-generated method stub
+	}
 	
 
-}
+

@@ -17,7 +17,9 @@ public class ProductsServiceImpl implements ProductsService{
 
 	@Override
 	public Products saveProducts(Products products) {
-		// TODO Auto-generated method stub
+		//Products product = product.
+		//		build(0, product.getProductname(), product.getProductdescription(),
+          //              product.getBrandid());
 		return productsRepository.save(products);
 		
 		
