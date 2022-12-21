@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.rama.products.entity.Products;
+import com.rama.products.error.ProductNotFoundException;
 import com.rama.products.service.ProductsService;
 
 @RestController
@@ -21,7 +22,7 @@ public class ProductsController {
 	
 	
 	@PostMapping("/products")
-	public Products saveProducts(@RequestBody @Valid Products products) {
+	public Products saveProducts(@RequestBody @Valid Products products) throws ProductNotFoundException {
 		return productsservice.saveProducts(products);
 	}
 
