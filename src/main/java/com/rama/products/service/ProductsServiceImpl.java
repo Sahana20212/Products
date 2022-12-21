@@ -1,11 +1,13 @@
 package com.rama.products.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.rama.products.entity.Products;
+import com.rama.products.error.ProductNotFoundException;
 import com.rama.products.repository.ProductsRepository;
 
 @Service
@@ -16,13 +18,17 @@ public class ProductsServiceImpl implements ProductsService{
 
 
 	@Override
-	public Products saveProducts(Products products) {
+	public Products saveProducts(Products products) throws ProductNotFoundException {
 		//Products product = product.
 		//		build(0, product.getProductname(), product.getProductdescription(),
           //              product.getBrandid());
-		return productsRepository.save(products);
+		products= productsRepository.save(products);
 		
+		if(products!=null) {
+            throw new ProductNotFoundException("Product Not Available");
+        }
 		
+		return products;
 	}
 	
 	 
