@@ -18,28 +18,30 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "product")
+@Table(name = "sku")
 @Data
 @AllArgsConstructor(staticName = "build")
 @NoArgsConstructor
 
-public class Products {	
+public class SKUS {	
 
 	@Id
 	 @GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name="product_id")
-	private Long productsId;
+	@Column(name="sku_id")
+	private Long skuId;
 	@NotBlank(message = "Product name cannot be blank")
-	@Column(name="product_name")
-	private String productName;
+	@Column(name="sku_name")
+	private String skuName;
     @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "brand_id", nullable = false)
+    @JoinColumn(name = "size_id", nullable = false)
     @ManyToOne
-    private Brand brand;
+    private Size size;
     
-    
-	@Column(name="rating")
-	private long rating;
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "color_id", nullable = false)
+    @ManyToOne
+    private Color color;
+
 	 
 		// TODO Auto-generated method stub
 	}
