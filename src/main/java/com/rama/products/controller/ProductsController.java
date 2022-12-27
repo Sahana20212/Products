@@ -28,9 +28,10 @@ public class ProductsController {
 
 	
 	@GetMapping("/products")
-    public List<Products> fetchDepartmentList() {
+    public List<Products> fetchProductsList() {
+		List<Products>  products=productsservice.fetchProductsList();
         
-        return productsservice.fetchProductsList();
+        return products;
     }
 	
 	@GetMapping("/products/{id}")
